@@ -12,6 +12,7 @@
   "dependencies": {
     "@storyblok/js": "^4.1.2",
     "@storyblok/react": "^5.2.0",
+    "@tailwindcss/vite": "^4.1.11",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3"
@@ -28,6 +29,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.3"
