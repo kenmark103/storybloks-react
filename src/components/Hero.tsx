@@ -1,6 +1,12 @@
 import { storyblokEditable } from "@storyblok/react";
+import type { BlokType } from "../types/types";
 
-export default function Hero({ blok }) {
+
+interface ContentProps {
+  blok: BlokType;
+}
+
+export default function Hero({ blok }: ContentProps) {
   const imageUrl = `${blok.hero_image}/m/1920x1080`;
 
   return (

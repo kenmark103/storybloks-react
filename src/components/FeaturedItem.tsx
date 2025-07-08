@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import { storyblokEditable, renderRichText } from "@storyblok/react";
+import type { BlokType } from "../types/types";
 
-export default function FeaturedItem({ blok }) {
+
+interface ContentProps {
+  blok: BlokType;
+}
+
+export default function FeaturedItem({ blok }: ContentProps) {
   return (
     <Link
       to={`/${blok.link.cached_url}`}
@@ -20,7 +26,7 @@ export default function FeaturedItem({ blok }) {
         <div
           className="text-sm text-gray-700"
           dangerouslySetInnerHTML={{
-            __html: renderRichText(blok.description),
+            __html: renderRichText(blok.description) || "" ,
           }}
         />
       </div>

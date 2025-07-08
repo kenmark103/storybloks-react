@@ -3,22 +3,24 @@ import { useEffect, useState } from "react";
 import { StoryblokComponent } from "@storyblok/react";
 import { getStoryblokApi } from "../services/storyblok";
 import StoryblokBridge from "../components/StoryblokBridge";
+import type { ISbStoryData } from "@storyblok/react";
 
 function PostPage() {
   const { slug } = useParams();
   const { search } = useLocation();
-  const [story, setStory] = useState(null);
+  const [story, setStory] = useState<ISbStoryData | null>(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchStory = async () => {
-      const version = new URLSearchParams(search).get("version") || "published";
+      const version = new URLSearchParams(search).get("version") as "draft" | "published" || "published";
       const sbApi = getStoryblokApi();
 
       try {
         const { data } = await sbApi.get(`cdn/stories/posts/${slug}`, {
           version,
         });
+
         if (data?.story) {
           setStory(data.story);
         } else {
@@ -39,7 +41,7 @@ function PostPage() {
   return (
     <>
       <StoryblokBridge />
-      {story.content.body.map((blok) => (
+      {story.content.body.map((blok: any) => (
         <StoryblokComponent blok={blok} key={blok._uid} />
       ))}
     </>

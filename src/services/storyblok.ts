@@ -1,4 +1,4 @@
-import { apiPlugin, storyblokInit } from "@storyblok/react"; 
+import { apiPlugin, storyblokInit, getStoryblokApi as sbGetApi } from "@storyblok/react";
 import Page from "../components/Page";
 import Hero from "../components/Hero";
 import Content from "../components/Content";
@@ -29,5 +29,4 @@ storyblokInit({
   },
 });
 
-export const getStoryblokApi = () =>
-  import('@storyblok/react/rsc').then((m) => m.getStoryblokApi());
+export const getStoryblokApi = sbGetApi;

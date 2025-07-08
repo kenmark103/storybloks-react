@@ -1,9 +1,14 @@
 import { storyblokEditable } from "@storyblok/react";
-import { richTextResolver } from "@storyblok/richtext";
+import { renderRichText } from "@storyblok/react";
+import type { BlokType } from "../types/types";
 
-const resolver = new richTextResolver();
 
-export default function PostsGrid({ blok }) {
+interface ContentProps {
+  blok: BlokType;
+}
+
+
+export default function PostsGrid({ blok }: ContentProps) {
   return (
     <div {...storyblokEditable(blok)} className="bg-white rounded-lg shadow overflow-hidden">
       <img
@@ -13,7 +18,7 @@ export default function PostsGrid({ blok }) {
         loading="lazy"
       />
       <div className="p-4 prose prose-sm">
-        <div dangerouslySetInnerHTML={{ __html: resolver.render(blok.content) }} />
+        <div dangerouslySetInnerHTML={{ __html: renderRichText(blok.content) || "" }} />
       </div>
     </div>
   );

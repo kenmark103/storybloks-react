@@ -1,7 +1,13 @@
 
 import { storyblokEditable, renderRichText } from "@storyblok/react";
+import type { BlokType } from "../types/types";
 
-function Content({ blok }) {
+
+interface ContentProps {
+  blok: BlokType;
+}
+
+function Content({ blok }: ContentProps) {
   const editableAttrs = storyblokEditable(blok);
 
   return (
@@ -12,7 +18,7 @@ function Content({ blok }) {
 
       <div className="w-full py-12">
         <div className="prose prose-lg max-w-5xl mx-auto px-4">
-          <div dangerouslySetInnerHTML={{ __html: renderRichText(blok.content) }} />
+          <div dangerouslySetInnerHTML={{ __html: renderRichText(blok.content) || "" }} />
         </div>
       </div>
     </section>
