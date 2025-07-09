@@ -11,7 +11,7 @@ function PostPage() {
 
   if (!story) return <div>Loading...</div>;
 
-  if (!story.content) return <div>Story has no content</div>;
+  if (!story.content) return <div></div>;
 
   return (
     <>
