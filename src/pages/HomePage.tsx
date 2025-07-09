@@ -13,7 +13,6 @@ function HomePage() {
 
   const story = useStoryblok("tour", { version });
 
-  // ✅ Defensive checks
   if (!story) return <div>Loading...</div>;
   if (!story.content) return <div>No content found for this story.</div>;
 

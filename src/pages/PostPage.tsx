@@ -4,7 +4,7 @@ import { StoryblokComponent, useStoryblok, renderRichText } from "@storyblok/rea
 function PostPage() {
   const { slug } = useParams();
 
-  // Fetch the story via useStoryblok for live updates
+
   const story = useStoryblok(`posts/${slug}`, {
     version: new URLSearchParams(window.location.search).get("version") as "draft" | "published" || "published",
   });
