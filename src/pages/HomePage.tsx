@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { StoryblokComponent, useStoryblok } from "@storyblok/react";
-import StoryblokBridge from "../components/StoryblokBridge";
 
 function HomePage() {
   const [version, setVersion] = useState<"draft" | "published">("published");
@@ -20,7 +19,6 @@ function HomePage() {
 
   return (
     <>
-      <StoryblokBridge />
       <StoryblokComponent blok={story.content} />
     </>
   );
