@@ -1,11 +1,2 @@
 @import "tailwindcss";
 
-
-
-body {
-  @apply bg-white text-gray-900;
-}
-
-.hero-title {
-  @apply text-5xl font-bold text-center my-8;
-}
