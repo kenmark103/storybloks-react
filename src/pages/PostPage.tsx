@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { StoryblokComponent, useStoryblok, renderRichText } from "@storyblok/react";
+import Header from "../components/Header";
+
 
 function PostPage() {
   const { slug } = useParams();
@@ -15,7 +17,7 @@ function PostPage() {
 
   return (
     <>
-    
+    <Header />    
       <div className="max-w-3xl mx-auto p-4">
         <h1 className="text-4xl font-bold mb-6">{story.content.title}</h1>
 
