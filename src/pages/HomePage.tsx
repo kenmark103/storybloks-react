@@ -1,25 +1,22 @@
 import { useState, useEffect } from "react";
-import { StoryblokComponent, useStoryblokApi } from "@storyblok/react";
+import { StoryblokComponent, useStoryblok } from "@storyblok/react";
 import StoryblokBridge from "../components/StoryblokBridge";
 
 function HomePage() {
-  const [story, setStory] = useState<any>(null);
-  const storyblokApi = useStoryblokApi();
+  const [version, setVersion] = useState<"draft" | "published">("published");
 
   useEffect(() => {
-    async function fetchData() {
-      const version = new URLSearchParams(window.location.search).get("version") as "draft" | "published" || "published";
-      const { data } = await storyblokApi.get("cdn/stories/tour", {
-        version,
-      });
-
-      setStory(data.story);
+    const queryVersion = new URLSearchParams(window.location.search).get("version");
+    if (queryVersion === "draft" || queryVersion === "published") {
+      setVersion(queryVersion);
     }
-
-    fetchData();
   }, []);
 
+  const story = useStoryblok("tour", { version });
+
+  // ✅ Defensive checks
   if (!story) return <div>Loading...</div>;
+  if (!story.content) return <div>No content found for this story.</div>;
 
   return (
     <>
