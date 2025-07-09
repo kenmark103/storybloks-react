@@ -13,7 +13,6 @@ import ImageGrid from "../components/ImageGrid";
 
 storyblokInit({
   accessToken: import.meta.env.VITE_STORYBLOK_PREVIEW_TOKEN,
-  bridge: true,
   use: [apiPlugin],
   components: {
     page: Page,
