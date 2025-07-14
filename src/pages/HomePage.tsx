@@ -11,7 +11,7 @@ function HomePage() {
     }
   }, []);
 
-  const story = useStoryblok("tour", { version });
+  const story = useStoryblok("tour", { version, bridge: true });
 
   if (!story) return <div>Loading...</div>;
   if (!story.content) return <div></div>;
