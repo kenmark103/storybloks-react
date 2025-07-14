@@ -11,6 +11,8 @@ function PostPage() {
     version: new URLSearchParams(window.location.search).get("version") as "draft" | "published" || "published",
   });
 
+  
+
   if (!story) return <div>Loading...</div>;
 
   if (!story.content) return <div></div>;
