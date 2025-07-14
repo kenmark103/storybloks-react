@@ -9,11 +9,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script src="//app.storyblok.com/f/storyblok-v2-latest.js"></script>
-    <script>
-      const sb = new StoryblokBridge();
-      sb.on(["published", "change"], () => window.location.reload());
-    </script>
-
   </body>
 </html>
