@@ -6,9 +6,7 @@ function HomePage() {
   const initialVersion =
     window.location.search.includes("_storyblok")
       ? "draft"
-      : (new URLSearchParams(window.location.search).get("version") as
-          | "draft"
-          | "published") ?? "published";
+      : (new URLSearchParams(window.location.search).get("version") as | "draft" | "published") ?? "published";
 
   const [version] = useState<"draft" | "published">(initialVersion);
 
