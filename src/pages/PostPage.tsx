@@ -24,7 +24,7 @@ export default function PostPage() {
   console.log("fetching version:", version);
 
   if (!story) return <div>Loading...</div>;
-  if (!story.content) return <div>No content found</div>;
+  if (!story.content) return <div></div>;
 
   return (
     <>
