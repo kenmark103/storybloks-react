@@ -12,6 +12,7 @@ function HomePage() {
   }, []);
 
   const story = useStoryblok("tour", { version});
+  console.log(version);
 
   if (!story) return <div>Loading...</div>;
   if (!story.content) return <div></div>;
