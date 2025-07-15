@@ -5,14 +5,19 @@ function HomePage() {
   const [version, setVersion] = useState<"draft" | "published">("published");
 
   useEffect(() => {
-    const queryVersion = new URLSearchParams(window.location.search).get("version");
+    let queryVersion = new URLSearchParams(window.location.search).get("version") as "draft" | "published" | null;
+
+    if (window.location.search.includes("_storyblok")) {
+      queryVersion = "draft";
+    }
+
     if (queryVersion === "draft" || queryVersion === "published") {
       setVersion(queryVersion);
     }
   }, []);
 
-  const story = useStoryblok("tour", { version});
-  console.log(version);
+  const story = useStoryblok("tour", { version });
+  console.log("fetching version:", version);
 
   if (!story) return <div>Loading...</div>;
   if (!story.content) return <div></div>;
